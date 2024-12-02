@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Details</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+ 
+  <script>
+    // Load the JSON data
+    $.getJSON('books.json', function(data) {
+      // a) Title of the first book
+      console.log("Title of the first book:", data.books[0].title);
+
+      // b) Author of the second book
+      console.log("Author of the second book:", data.books[1].author);
+
+      // c) Genres of all books
+      data.books.forEach(book => console.log("Genres:", book.genres.join(", ")));
+    }).fail(function() {
+      console.error("Failed to load books.json. Please check the file path.");
+    });
+  </script>
+</body>
+</html>
